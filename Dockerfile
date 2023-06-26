@@ -2,10 +2,10 @@
 FROM node:18
 
 # Set the working directory in the container
-WORKDIR shri-react-hw-2023/simple_api
+WORKDIR /simple_api
 
 # Copy the application files into the working directory
-COPY . shri-react-hw-2023/simple_api
+COPY . /simple_api
 
 # Install the application dependencies
 RUN npm install
