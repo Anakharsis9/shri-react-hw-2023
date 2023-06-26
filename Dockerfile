@@ -2,16 +2,20 @@
 FROM node:18
 
 # Set the working directory in the container
-WORKDIR /app
+# Create app directory
+WORKDIR /usr/src/app
 
-# Copy the application files into the working directory
+# Install app dependencies
+# A wildcard is used to ensure both package.json AND package-lock.json are copied
 COPY package*.json ./
 
-# Install the application dependencies
 RUN npm install
 
 # Bundle app source
 COPY . .
 
+# Expose the port
+EXPOSE 3001
+
 # Define the entry point for the container
-CMD ["node", "simple_api/server.js"]
+CMD ["node", "server.js"]
