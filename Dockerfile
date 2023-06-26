@@ -2,13 +2,16 @@
 FROM node:18
 
 # Set the working directory in the container
-WORKDIR /simple_api
+WORKDIR /app
 
 # Copy the application files into the working directory
-COPY . /simple_api
+COPY package*.json ./
 
 # Install the application dependencies
 RUN npm install
 
+# Bundle app source
+COPY . .
+
 # Define the entry point for the container
-CMD ["npm", "start"]
+CMD ["node", "simple_api/server.js"]
